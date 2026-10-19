@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Quản lý (static) - Đen Cam</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <main id="loginView" class="card center">
+      <h1 class="brand"><span class="accent">Quản</span> Lý</h1>
+      <p class="muted">Phiên bản static — chạy bằng localStorage</p>
+      <input id="username" placeholder="Tên đăng nhập" value="admin" />
+      <input id="password" type="password" placeholder="Mật khẩu" value="password" />
+      <button id="btnLogin" class="btn primary">Đăng nhập</button>
+      <p class="muted small">Demo: admin / password</p>
+    </main>
+
+    <nav id="mainNav" class="hidden">
+      <div class="nav-left brand-small"><span class="accent">Đen</span>-Cam</div>
+      <div class="nav-right">
+        <button id="btnLogout" class="icon-btn">Đăng xuất</button>
+      </div>
+    </nav>
+
+    <section id="dashboard" class="hidden container">
+      <div class="tabs">
+        <button class="tab active" data-tab="links">Liên kết</button>
+        <button class="tab" data-tab="integrations">API / Tích hợp</button>
+        <button class="tab" data-tab="settings">Cài đặt</button>
+      </div>
+
+      <div id="tabLinks" class="tabContent">
+        <form id="linkForm" class="card">
+          <h3>Thêm liên kết mới</h3>
+          <input id="linkName" placeholder="Tên" />
+          <input id="linkUrl" placeholder="https://..." />
+          <div class="row">
+            <button type="button" id="btnAddLink" class="btn primary">Thêm</button>
+            <button type="button" id="btnClear" class="btn ghost">Xóa form</button>
+          </div>
+        </form>
+        <div id="linksList" class="list"></div>
+      </div>
+
+      <div id="tabIntegrations" class="tabContent hidden">
+        <div class="card">
+          <h3>Gọi API trực tiếp (CORS áp dụng)</h3>
+          <input id="apiUrl" placeholder="https://api.example.com/endpoint" />
+          <select id="apiMethod"><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select>
+          <input id="apiHeaders" placeholder='Headers JSON (ví dụ: {"Authorization":"Bearer ..."})' />
+          <textarea id="apiBody" placeholder="JSON body (nếu có)"></textarea>
+          <div class="row">
+            <button id="btnCallApi" class="btn primary">Gọi API</button>
+            <button id="btnClearApi" class="btn ghost">Xóa</button>
+          </div>
+          <pre id="apiResult" class="result"></pre>
+        </div>
+
+        <div class="card">
+          <h3>Mẫu tích hợp (Templates)</h3>
+          <input id="templateName" placeholder="Tên mẫu" />
+          <input id="templateUrl" placeholder="https://api..." />
+          <select id="templateMethod"><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select>
+          <input id="templateHeaders" placeholder='Headers JSON' />
+          <textarea id="templateBody" placeholder='Body JSON'></textarea>
+          <div class="row">
+            <button id="btnSaveTemplate" class="btn primary">Lưu mẫu</button>
+            <button id="btnClearTemplate" class="btn ghost">Xóa form</button>
+          </div>
+          <div id="templatesList" class="list"></div>
+        </div>
+      </div>
+
+      <div id="tabSettings" class="tabContent hidden">
+        <div class="card">
+          <h3>Cài đặt</h3>
+          <p class="muted small">Phiên bản local: dữ liệu lưu trên trình duyệt (localStorage).</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

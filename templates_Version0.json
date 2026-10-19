@@ -1,0 +1,19 @@
+[
+  {
+    "id": "template-link4m-sample",
+    "name": "link4m (mẫu)",
+    "url": "https://api.example.com/link4m/activate",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+      "x-api-key": "YOUR_LINK4M_KEY"
+    },
+    "body": {
+      "phone": "0987654321",
+      "amount": 10000,
+      "note": "Giao dịch demo"
+    },
+    "description": "Mẫu gọi API link4m — thay YOUR_LINK4M_KEY bằng key thật",
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
+]
